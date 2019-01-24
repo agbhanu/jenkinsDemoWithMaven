@@ -7,12 +7,8 @@ pipeline {
                           stage('clone') { 
             
                                                     steps {
-                
-                                                           sh "rm -rf jenkinsDemoWithMaven"
-                
-                                                           sh "git clone https://github.com/agbhanu/jenkinsDemoWithMaven.git"
-                
-                                                           sh "mvn clean -f jenkinsDemoWithMaven"
+                            
+                                                           sh "mvn clean"
             
                                                           }
          
@@ -22,7 +18,7 @@ pipeline {
             
                                                    steps {
                 
-                                                          sh "mvn test -f jenkinsDemoWithMaven"
+                                                          sh "mvn test"
             
                                                          }
         
@@ -32,7 +28,7 @@ pipeline {
             
                                           steps {
                 
-                                                 sh "mvn package -f jenkinsDemoWithMaven"
+                                                 sh "mvn package"
            
                                                 }
         
