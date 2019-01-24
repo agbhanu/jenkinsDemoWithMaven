@@ -7,4 +7,8 @@ public class Sample {
         System.out.println("Hello World");
         System.out.println("Hello World");
     }
+
+    public int sumOfTwoNum(int a,int b){
+        return a+b;
+    }
 }
