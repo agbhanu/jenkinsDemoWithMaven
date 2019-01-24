@@ -4,7 +4,7 @@ pipeline {
     
                   stages {
         
-                          stage('clone') { 
+                          stage('clean') { 
             
                                                     steps {
                             
