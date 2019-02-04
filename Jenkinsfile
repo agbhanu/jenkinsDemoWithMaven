@@ -1,39 +1,13 @@
 pipeline {
-    
-         agent any 
-    
-                  stages {
-        
-                          stage('clean') { 
-            
-                                                    steps {
-                            
-                                                           sh "mvn clean"
-            
-                                                          }
-         
-                                                   }
-         
-                         stage('Test') { 
-            
-                                                   steps {
-                
-                                                          sh "mvn test"
-            
-                                                         }
-        
-                                       }
-        
-                         stage('Deploy') { 
-            
-                                          steps {
-                
-                                                 sh "mvn package"
-           
-                                                }
-        
-                                         }
-    
-                         }
+    agent any
+       stages {
+          stage("build & SonarQube analysis") {
+               steps {
+                        withSonarQubeEnv('sonar') {
+                          sh 'mvn clean sonar:sonar'
+                        }
+               }
+          }
+       }
 
 }
