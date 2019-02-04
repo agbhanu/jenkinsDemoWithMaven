@@ -8,6 +8,13 @@ pipeline {
                         }
                }
           }
+          stage("test & SonarQube analysis"){
+               steps{
+                       withSonaeQubeEnv('sonar'){
+                         sh 'mvn test sonar:sonar'
+                       }
+               }
+          }
        }
 
 }
